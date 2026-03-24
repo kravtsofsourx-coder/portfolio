@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <title>Project Name — Yurii Kravtsov</title>
+  <meta content="Project Name — Yurii Kravtsov" name="description"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- Google Sans via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <a href="../index.html" class="back-button" aria-label="Back to home">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back
+  </a>
+
+  <main class="page">
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 1 · HERO
+         Contains: H1 title + full-width hero image.
+         Image dimensions in design: 1024 × 640 px.
+    ───────────────────────────────────────────── -->
+    <section class="section section--hero">
+      <h1 class="h1">Дизайн додатку для замовлення квітів</h1>
+      <img
+        class="section-image"
+        src="images/hero.png"
+        alt="Hero image"/>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 2 · GOALS
+         Contains: H2 heading + large body text (32 px).
+         Text is left-aligned within the 1024 px column.
+    ───────────────────────────────────────────── -->
+    <section class="section section--goals">
+      <h2 class="h2">Задачі та цілі</h2>
+      <p class="text-big">
+        Створити дизайн додатку для замовлення і швидкої кур'єрської доставки квітів.
+        Перекласти вже звичний для користувачів досвід використання сервісів доставки
+        їжі на квітковий сервіс.
+      </p>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 3 · VISUAL (h2 + image, no body text)
+         Contains: H2 heading + image only.
+         Image height is flexible — set by the image itself.
+    ───────────────────────────────────────────── -->
+    <section class="section section--visual">
+      <h2 class="h2">Основний флоу</h2>
+      <img
+        class="section-image"
+        src="images/section-visual.png"
+        alt="Основний флоу"/>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         SECTION 4 · CONTENT (h2 + body text + image)
+         Contains: H2 heading + regular body text (22 px)
+         + image below the text.
+         Use multiple <p> tags for separate paragraphs —
+         a 12 px gap is applied automatically between them.
+    ───────────────────────────────────────────── -->
+    <section class="section section--content">
+      <h2 class="h2">Онбордінг</h2>
+      <div class="text-body">
+        <p>
+          Дуже важливо одразу розповісти про цінність додатку. Два перших екрана показують
+          основні фішки: швидку доставку та можливість відслідковувати замовлення, як у
+          додатках по типу Glovo чи Uber.
+        </p>
+        <p>
+          Сервіс, поки що, працює тільки у Києві, тому на другому екрані користувач повинен
+          це побачити і підтвердити.
+        </p>
+      </div>
+      <img
+        class="section-image"
+        src="images/section-content.png"
+        alt="Онбордінг"/>
+    </section>
+
+  </main>
+
+</body>
+</html>
