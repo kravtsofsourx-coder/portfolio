@@ -1,0 +1,435 @@
+/* ═══════════════════════════════════════════════════════
+   RESET / BASE
+═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Google Sans", Arial, sans-serif;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SITE HEADER
+   Fixed bar at the top. Inner container aligns to the
+   same 1024px column as the page content.
+═══════════════════════════════════════════════════════ */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 29px 110px 20px;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   BACK BUTTON
+═══════════════════════════════════════════════════════ */
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px 8px 10px;
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+  font-family: "Google Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   LANGUAGE SWITCHER
+═══════════════════════════════════════════════════════ */
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: #f0f0f0;
+  border-radius: 100px;
+  font-family: "Google Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.lang-switcher a {
+  color: #1a1a1a;
+  text-decoration: none;
+  opacity: 0.35;
+  transition: opacity 0.15s ease;
+}
+
+.lang-switcher a.lang-active {
+  opacity: 1;
+}
+
+.lang-switcher a:hover {
+  opacity: 0.7;
+}
+
+.lang-switcher-divider {
+  color: #1a1a1a;
+  opacity: 0.2;
+  user-select: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   PAGE WRAPPER
+═══════════════════════════════════════════════════════ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 96px 40px 120px;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════════════════ */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1024px;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   MULTI-BLOCK SECTION
+   One H2 at top + repeatable text+image blocks.
+═══════════════════════════════════════════════════════ */
+
+.section--multi {
+  gap: 32px;
+}
+
+.section-block + .section-block {
+  margin-top: 28px; /* 32 + 28 = 60px total between blocks */
+}
+
+.section-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════════════════ */
+
+.h1 {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.h2 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.h3 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.text-big {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+  width: 100%;
+}
+
+.text-body {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+  width: 100%;
+}
+
+.text-body p + p {
+  margin-top: 12px;
+}
+
+/* List styles — text-big */
+.text-big--list {
+  list-style: disc;
+  padding-left: 40px;
+  width: 100%;
+}
+
+.text-big--list li + li {
+  margin-top: 16px;
+}
+
+/* List styles — text-body */
+.text-body--list {
+  list-style: disc;
+  padding-left: 28px;
+  width: 100%;
+}
+
+ol.text-body--list {
+  list-style: decimal;
+}
+
+.text-body--list li + li {
+  margin-top: 12px;
+}
+
+/* Lists nested inside a .text-body wrapper (flowerpot pattern) */
+.text-body ol,
+.text-body ul {
+  margin-top: 12px;
+  padding-left: 28px;
+}
+
+.text-body li + li {
+  margin-top: 12px;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   CONTRIBUTION SECTION
+   Metadata block: label-value rows with bottom dividers.
+   No H2 — placed directly after the hero section.
+═══════════════════════════════════════════════════════ */
+
+.section--contribution {
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.contribution-row {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.contribution-label {
+  width: 340px;
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  opacity: 0.5;
+}
+
+.contribution-value {
+  flex: 1;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   PROBLEM-DECISION BLOCK
+   Two-column rows of insight/problem + solution pairs.
+   Each row (except the last) has a bottom divider.
+═══════════════════════════════════════════════════════ */
+
+.problem-decision {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.problem-decision-row {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.problem-decision-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.problem-decision-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.problem-decision-body {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SECTION IMAGE
+═══════════════════════════════════════════════════════ */
+
+.section-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — tablet ≤ 991px
+═══════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 991px) {
+  .site-header { padding: 29px 30px 20px; }
+
+  .page {
+    gap: 60px;
+    padding: 88px 32px 80px;
+  }
+
+  .h1 { font-size: 40px; }
+  .h2 { font-size: 34px; }
+  .h3 { font-size: 24px; }
+  .text-big { font-size: 26px; }
+  .text-body { font-size: 20px; }
+  .problem-decision-body { font-size: 20px; }
+  .contribution-label { width: 240px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — mobile ≤ 767px
+═══════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 767px) {
+  .site-header { padding: 29px 15px 20px; }
+
+  .page {
+    gap: 48px;
+    padding: 84px 24px 64px;
+  }
+
+  .h1 { font-size: 32px; }
+  .h2 { font-size: 28px; margin-bottom: -8px; }
+  .h3 { font-size: 18px; }
+  .text-big { font-size: 22px; }
+  .text-body { font-size: 18px; }
+  .problem-decision-body { font-size: 18px; }
+
+  .contribution-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contribution-label {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .contribution-value {
+    font-size: 18px;
+  }
+
+  .problem-decision-row {
+    flex-direction: column;
+  }
+
+  .section-block + .section-block {
+    margin-top: 16px;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — small mobile ≤ 479px
+═══════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 479px) {
+  .site-header { padding: 29px 12px 20px; }
+
+  .page {
+    gap: 40px;
+    padding: 80px 16px 56px;
+  }
+
+  .h1 { font-size: 26px; }
+  .h2 { font-size: 22px; margin-bottom: -8px; }
+  .text-big { font-size: 18px; }
+  .text-body { font-size: 16px; }
+  .problem-decision-body { font-size: 16px; }
+  .contribution-label { font-size: 16px; }
+  .contribution-value { font-size: 16px; }
+}
