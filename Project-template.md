@@ -125,7 +125,11 @@ CSS to add to `styles.css`:
 .section--multi {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 32px; /* H2 to first block */
+}
+
+.section-block + .section-block {
+  margin-top: 28px; /* 32 + 28 = 60px total between blocks */
 }
 
 .section-block {
@@ -146,7 +150,131 @@ CSS to add to `styles.css`:
 
 - The H2 is optional — omit it if the section has no overall title.
 - Each `.section-block` is self-contained: duplicate or remove blocks freely.
-- Gap between blocks is 32 px (same as inner gap); gap between sections remains 80 px.
+- Gap between blocks is 60 px; inner gap within each block (text to image) is 32 px; gap between sections remains 80 px.
+
+---
+
+### Section 6 — Contribution (metadata block)
+
+Use this at the top of a case to show role/team metadata. No H2. Each row has a label on the left and a value on the right, separated by a bottom divider.
+
+```html
+<section class="section section--contribution">
+  <div class="contribution-row">
+    <p class="contribution-label">Моя участь</p>
+    <p class="contribution-value">ASO Keywords analysis, UI design…</p>
+  </div>
+  <div class="contribution-row">
+    <p class="contribution-label">Команда</p>
+    <p class="contribution-value">4 людини, включаючи PO та PM</p>
+  </div>
+</section>
+```
+
+CSS to add to `styles.css`:
+```css
+.section--contribution {
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.contribution-row {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.contribution-label {
+  width: 340px;
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  opacity: 0.5;
+}
+
+.contribution-value {
+  flex: 1;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+```
+
+- Add as many `.contribution-row` items as needed.
+- Place directly after the hero section, before the goals section.
+
+---
+
+### Section 7 — Problem-Decision block
+
+Use this inside any section to show one or more problem/insight + solution pairs in two columns. Each row (except the last) gets a bottom divider automatically. If there is only one row, no divider is shown.
+
+```html
+<div class="problem-decision">
+  <div class="problem-decision-row">
+    <div class="problem-decision-col">
+      <p class="h3">Проблема</p>
+      <p class="problem-decision-body">Description of the problem.</p>
+    </div>
+    <div class="problem-decision-col">
+      <p class="h3">Рішення</p>
+      <p class="problem-decision-body">Description of the solution.</p>
+    </div>
+  </div>
+  <!-- Add more rows as needed -->
+</div>
+```
+
+CSS to add to `styles.css`:
+```css
+.problem-decision {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.problem-decision-row {
+  display: flex;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.problem-decision-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.problem-decision-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.problem-decision-label {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.problem-decision-body {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+```
+
+- The left column label can be "Проблема", "Інсайт", or any other label.
+- The right column label is typically "Рішення".
+- Place `.problem-decision` inside a `section--content` or `section-block` like any other content element.
+- If there is only one `.problem-decision-row`, no divider appears automatically — no extra markup needed.
 
 ---
 
@@ -157,13 +285,16 @@ CSS to add to `styles.css`:
 | Color        | `#1a1a1a`                | All text                     |
 | Background   | `#ffffff`                | Page background              |
 | Font family  | Google Sans, Medium (weight 500) | All text               |
-| H1           | 48 px / line-height 1.4  | Hero title                   |
-| H2           | 40 px / line-height 1.2  | Section headings             |
+| H1           | 48 px / line-height 1.4 / **weight 500** | Hero title                   |
+| H2           | 40 px / line-height 1.2 / **weight 500** | Section headings             |
+| H3           | 28 px / line-height 1.4 / **weight 500** | Problem-Decision labels (`.h3` class) |
 | Text big     | 32 px / line-height 1.4  | Goals section body           |
 | Text body    | 22 px / line-height 1.4  | Content section body         |
 | Section gap  | 80 px                    | Vertical space between sections |
 | Inner gap    | 32 px                    | Space between elements inside a section |
 | Paragraph gap | 12 px                   | Between `<p>` tags in `.text-body` |
+| List item gap (text-big) | 16 px        | Between `<li>` items in `.text-big` |
+| List item gap (text-body) | 12 px       | Between `<li>` items in `.text-body` |
 | Content width | 1024 px max-width       | All sections and images      |
 
 ---
